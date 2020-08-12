@@ -1,5 +1,5 @@
 import React, {CSSProperties} from "react";
-import {DirectionResource, StationResource} from "./VelvetDatasource";
+import {StationResource} from "./VelvetDatasource";
 
 const DoorSelector: React.FunctionComponent<{
     stations: StationResource,

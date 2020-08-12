@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {cartsPerMetro, doorsPerCart} from "./App";
+import {doorsPerCart} from "./App";
 
 export interface MetroResource {
     [key: number]: DirectionResource
