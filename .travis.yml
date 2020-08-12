@@ -1,0 +1,20 @@
+sudo: true
+language: node_js
+node_js:
+  - node
+git:
+  quiet: true
+cache: npm
+
+env:
+  - PUBLIC_URL=https://skornel02.github.io/metro-ajto
+
+script:
+  - npm run build
+
+deploy:
+  provider: pages
+  token: $github_token
+  edge: true
+  local_dir: build
+  fqdn: skornel02.github.io/metro-ajto
