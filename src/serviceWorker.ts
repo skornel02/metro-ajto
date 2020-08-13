@@ -10,6 +10,8 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
 
+import {toast} from "react-toastify";
+
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
@@ -81,6 +83,7 @@ function registerValidSW(swUrl: string, config?: Config) {
                 'New content is available and will be used when all ' +
                   'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
               );
+              toast("Sikeresen frissültem!", {type: "success"});
 
               // Execute callback
               if (config && config.onUpdate) {
@@ -91,6 +94,7 @@ function registerValidSW(swUrl: string, config?: Config) {
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
               console.log('Content is cached for offline use.');
+              toast("Most már offline is elérhető vagyok!", {type: "success"});
 
               // Execute callback
               if (config && config.onSuccess) {

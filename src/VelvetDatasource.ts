@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {doorsPerCart} from "./App";
+import * as localForage from "localforage";
 
 export interface MetroResource {
     [key: number]: DirectionResource
@@ -20,11 +21,20 @@ class VelvetDatasource {
 
     async getResource(): Promise<MetroResource> {
         if (this.metroResource === undefined)
-            this.metroResource = await this.refreshResource();
+            this.metroResource = await this.loadResource();
         return this.metroResource;
     }
 
-    async refreshResource(): Promise<MetroResource> {
+    async loadResource(): Promise<MetroResource> {
+        let cache = await localForage.getItem<MetroResource>("metro-ajto-data");
+        if (cache === null) {
+            cache = await this.fetchExternalResource();
+            await localForage.setItem("metro-ajto-data", cache);
+        }
+        return cache;
+    }
+
+    async fetchExternalResource(): Promise<MetroResource> {
         const request: any = await axios.get("https://velvet.hu/assets/static/metrogen.json");
         const data: MetroResource = {};
         for (let metro = 1; metro <= 4; metro++) {
