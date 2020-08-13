@@ -7,11 +7,14 @@ const DoorSelector: React.FunctionComponent<{
     selectStation: (door: string) => void,
 }> = props => {
     const base: CSSProperties = {
-
+        fontFamily: "'Open Sans', sans-serif",
+        color: "black",
+        listStyle: "none",
+        textAlign: "center",
     };
     const selected: CSSProperties = {
         ...base,
-        color: "darkred",
+        color: "#F7931E"
     }
 
     const options = Object.keys(props.stations).map(station => <li key={station}

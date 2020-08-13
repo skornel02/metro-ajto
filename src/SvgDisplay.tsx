@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 
 const SvgDisplay: React.FunctionComponent<{ svg: string, selectedDoor: number }> = props => {
-    const [color, setColor] = useState<string>("red");
+    const [color, setColor] = useState<string>("green");
     const style = props.selectedDoor === 0 ? "" : `
         #door-${props.selectedDoor}{
             fill: ${color};
@@ -9,10 +9,10 @@ const SvgDisplay: React.FunctionComponent<{ svg: string, selectedDoor: number }>
     `;
     useEffect(() => {
         const interval = setInterval(() => {
-            if (color === "red") {
+            if (color === "green") {
                 setColor("orange");
             } else {
-                setColor("red");
+                setColor("green");
             }
         }, 500);
         return () => {

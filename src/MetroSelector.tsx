@@ -15,27 +15,28 @@ const MetroSelector: React.FunctionComponent<{
         marginRight: "0.25rem",
         justifyContent: "center",
         textAlign: "center",
-        fontSize: "5vw"
+        fontSize: "5vw",
+        fontFamily: "'Open sans'"
     }
     const M1Style: CSSProperties = {...baseStyle};
     if (props.metro === Metro.M1) {
         M1Style["color"] = "white";
-        M1Style["backgroundColor"] = "yellow";
+        M1Style["backgroundColor"] = "#FFD800";
     }
     const M2Style: CSSProperties = {...baseStyle};
     if (props.metro === Metro.M2) {
         M2Style["color"] = "white";
-        M2Style["backgroundColor"] = "red";
+        M2Style["backgroundColor"] = "#E41F18";
     }
     const M3Style: CSSProperties = {...baseStyle};
     if (props.metro === Metro.M3) {
         M3Style["color"] = "white";
-        M3Style["backgroundColor"] = "blue";
+        M3Style["backgroundColor"] = "#005CA5";
     }
     const M4Style: CSSProperties = {...baseStyle};
     if (props.metro === Metro.M4) {
         M4Style["color"] = "white";
-        M4Style["backgroundColor"] = "green";
+        M4Style["backgroundColor"] = "#48A842";
     }
 
     return (

@@ -30,6 +30,7 @@ const App: React.FunctionComponent = () => {
     useEffect(() => {
         VelvetDatasource.getResource().then(setResource);
     }, [])
+
     return (
         <div className="App">
             <header className="Picker">
@@ -39,7 +40,7 @@ const App: React.FunctionComponent = () => {
                 <DirectionSelector metro={metro} resources={resource}/>
             </main>
             <footer>
-                Nézzétek meg az adatok tulajdonosának a cíkkét: <a href={"https://velvet.hu/bpma/2015/06/17/metro/"}>velvet.hu</a>
+                Nézzétek meg az adatok tulajdonosának cikkét: <a style={{color: "red"}} href={"https://velvet.hu/bpma/2015/06/17/metro/"}>velvet.hu</a>
             </footer>
         </div>
     );

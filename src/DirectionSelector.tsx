@@ -14,11 +14,13 @@ const DirectionSelector: React.FunctionComponent<{
 
     const base: CSSProperties = {
         fontSize: "1.5rem",
-        textAlign: "center"
+        textAlign: "center",
+        color: "black",
+        fontFamily: "'Open Sans', sans-serif",
     }
     const selected: CSSProperties = {
         ...base,
-        color: "red"
+        color: "#F7931E"
     };
 
     if (props.resources === undefined)
