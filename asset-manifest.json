@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "https://skornel02.github.io/metro-ajto/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "https://skornel02.github.io/metro-ajto/static/js/main.9e46af7d.chunk.js",
-    "main.js.map": "https://skornel02.github.io/metro-ajto/static/js/main.9e46af7d.chunk.js.map",
+    "main.css": "https://skornel02.github.io/metro-ajto/static/css/main.0b0e26dc.chunk.css",
+    "main.js": "https://skornel02.github.io/metro-ajto/static/js/main.e5b0a2c0.chunk.js",
+    "main.js.map": "https://skornel02.github.io/metro-ajto/static/js/main.e5b0a2c0.chunk.js.map",
     "runtime-main.js": "https://skornel02.github.io/metro-ajto/static/js/runtime-main.ee64c131.js",
     "runtime-main.js.map": "https://skornel02.github.io/metro-ajto/static/js/runtime-main.ee64c131.js.map",
     "static/js/2.945a260a.chunk.js": "https://skornel02.github.io/metro-ajto/static/js/2.945a260a.chunk.js",
     "static/js/2.945a260a.chunk.js.map": "https://skornel02.github.io/metro-ajto/static/js/2.945a260a.chunk.js.map",
     "index.html": "https://skornel02.github.io/metro-ajto/index.html",
-    "precache-manifest.6458a94633c9b62b4d3a60047de40ed5.js": "https://skornel02.github.io/metro-ajto/precache-manifest.6458a94633c9b62b4d3a60047de40ed5.js",
+    "precache-manifest.16ecfc9149bed03764d44a596cfea075.js": "https://skornel02.github.io/metro-ajto/precache-manifest.16ecfc9149bed03764d44a596cfea075.js",
     "service-worker.js": "https://skornel02.github.io/metro-ajto/service-worker.js",
-    "static/css/main.5ecd60fb.chunk.css.map": "https://skornel02.github.io/metro-ajto/static/css/main.5ecd60fb.chunk.css.map",
+    "static/css/main.0b0e26dc.chunk.css.map": "https://skornel02.github.io/metro-ajto/static/css/main.0b0e26dc.chunk.css.map",
     "static/js/2.945a260a.chunk.js.LICENSE.txt": "https://skornel02.github.io/metro-ajto/static/js/2.945a260a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ee64c131.js",
     "static/js/2.945a260a.chunk.js",
-    "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.9e46af7d.chunk.js"
+    "static/css/main.0b0e26dc.chunk.css",
+    "static/js/main.e5b0a2c0.chunk.js"
   ]
 }

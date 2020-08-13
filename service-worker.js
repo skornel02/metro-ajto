@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://skornel02.github.io/metro-ajto/precache-manifest.6458a94633c9b62b4d3a60047de40ed5.js"
+  "https://skornel02.github.io/metro-ajto/precache-manifest.16ecfc9149bed03764d44a596cfea075.js"
 );
 
 self.addEventListener('message', (event) => {
