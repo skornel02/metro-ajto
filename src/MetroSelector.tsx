@@ -5,12 +5,21 @@ const MetroSelector: React.FunctionComponent<{
     metro: Metro,
     select: (metro: Metro) => void,
 }> = props => {
+    const css = `@media screen and (min-width: 930px) {
+    .selectorRound {
+        font-size: 46px !important;
+    }
+}
+    `;
+
     const baseStyle: CSSProperties = {
         backgroundColor: "lightgrey",
         borderRadius: "50%",
         width: "7vw",
         height: "7vw",
-        padding: "0.25rem",
+        maxWidth: "65px",
+        maxHeight: "65px",
+        padding: "0.15rem 0.20rem 0.15rem 0.15rem",
         marginLeft: "0.25rem",
         marginRight: "0.25rem",
         justifyContent: "center",
@@ -40,23 +49,28 @@ const MetroSelector: React.FunctionComponent<{
     }
 
     return (
-        <div style={{display: "flex", justifyContent: "center"}}>
-            <div style={baseStyle}>
-                M
+        <>
+            <style>
+                {css}
+            </style>
+            <div style={{display: "flex", justifyContent: "center"}}>
+                <div className="selectorRound" style={baseStyle}>
+                    M
+                </div>
+                <div className="selectorRound" style={M1Style} onClick={() => props.select(Metro.M1)}>
+                    1
+                </div>
+                <div className="selectorRound" style={M2Style} onClick={() => props.select(Metro.M2)}>
+                    2
+                </div>
+                <div className="selectorRound" style={M3Style} onClick={() => props.select(Metro.M3)}>
+                    3
+                </div>
+                <div className="selectorRound" style={M4Style} onClick={() => props.select(Metro.M4)}>
+                    4
+                </div>
             </div>
-            <div style={M1Style} onClick={() => props.select(Metro.M1)}>
-                1
-            </div>
-            <div style={M2Style} onClick={() => props.select(Metro.M2)}>
-                2
-            </div>
-            <div style={M3Style} onClick={() => props.select(Metro.M3)}>
-                3
-            </div>
-            <div style={M4Style} onClick={() => props.select(Metro.M4)}>
-                4
-            </div>
-        </div>
+        </>
     );
 };
 

@@ -44,7 +44,7 @@ const App: React.FunctionComponent = () => {
                 <DirectionSelector metro={metro} resources={resource}/>
             </main>
             <footer style={{textAlign: "center"}}>
-                Nézzétek meg az adatok tulajdonosának cikkét: <a style={{color: "red"}}
+                Nézzétek meg az adatok tulajdonosának cikkét: <a style={{color: "orange"}}
                                                                  href={"https://velvet.hu/bpma/2015/06/17/metro/"}>velvet.hu</a>
             </footer>
             <ToastContainer/>

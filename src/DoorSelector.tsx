@@ -26,7 +26,7 @@ const DoorSelector: React.FunctionComponent<{
     </li>)
 
     return (
-        <ul>
+        <ul style={{padding: "0", marginBottom: "50px"}}>
             {options}
         </ul>
     );

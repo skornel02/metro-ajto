@@ -1,5 +1,5 @@
 import React, {CSSProperties, useState} from "react";
-import {Metro} from "./App";
+import {doorsPerCart, Metro} from "./App";
 import {MetroResource} from "./VelvetDatasource";
 import SvgDisplay from "./SvgDisplay";
 import {Metroes} from "./Svg";
@@ -42,8 +42,11 @@ const DirectionSelector: React.FunctionComponent<{
 
     return (
         <>
-            <div style={{margin: "0 auto", maxWidth: "900px"}}>
+            <div style={{margin: "0 auto", maxWidth: "900px", padding: "0 10%"}}>
                 <SvgDisplay svg={Metroes[props.metro]} selectedDoor={selectedDoor}/>
+                <h3 style={{textAlign: "center", margin: "0"}} hidden={selectedDoor === 0}>
+                    {Math.floor((selectedDoor - 1) / doorsPerCart[props.metro]) + 1}. kocsi {(selectedDoor - 1) % doorsPerCart[props.metro] + 1}. ajtó
+                </h3>
             </div>
             <div style={{display: "flex", justifyContent: "space-around"}}>
                 {directionsItem}
