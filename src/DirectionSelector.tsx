@@ -27,11 +27,12 @@ const DirectionSelector: React.FunctionComponent<{
         return null;
 
     const station = props.resources[props.metro];
-    let selectedDoor = 0;
+    let selectedDoors: number[] = [];
     if (selectedDirection !== undefined && selectedStation !== undefined && props.resources[props.metro][selectedDirection] !== undefined)
-        selectedDoor = props.resources[props.metro][selectedDirection][selectedStation];
+        selectedDoors = props.resources[props.metro][selectedDirection][selectedStation];
 
     const directionsItem = Object.keys(station).map(direction => <h1
+        key={direction}
         style={direction === selectedDirection ? selected : base}
         onClick={() => {
             setSelectedDirection(direction);
@@ -43,9 +44,13 @@ const DirectionSelector: React.FunctionComponent<{
     return (
         <>
             <div style={{margin: "0 auto", maxWidth: "900px", padding: "0 10%"}}>
-                <SvgDisplay svg={Metroes[props.metro]} selectedDoor={selectedDoor}/>
-                <h3 style={{textAlign: "center", margin: "0"}} hidden={selectedDoor === 0}>
-                    {Math.floor((selectedDoor - 1) / doorsPerCart[props.metro]) + 1}. kocsi {(selectedDoor - 1) % doorsPerCart[props.metro] + 1}. ajtó
+                <SvgDisplay svg={Metroes[props.metro]} selectedDoors={selectedDoors}/>
+                <h3 style={{textAlign: "center", margin: "0"}} hidden={selectedDoors.length === 0}>
+                    {selectedDoors.map(selectedDoor => (Math.floor((selectedDoor - 1) / doorsPerCart[props.metro]) + 1)
+                        + ". kocsi "
+                        + ((selectedDoor - 1) % doorsPerCart[props.metro] + 1)
+                        + ". ajtó")
+                        .join(" — ")}
                 </h3>
             </div>
             <div style={{display: "flex", justifyContent: "space-around"}}>

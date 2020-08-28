@@ -11,13 +11,14 @@ export interface DirectionResource {
 }
 
 export interface StationResource {
-    [key: string]: number
+    [key: string]: number[]
 }
 
 const numberMatcher = /[1-9]\./g;
 
 class VelvetDatasource {
     private metroResource: undefined | MetroResource;
+    private forage = localForage.createInstance({name: "MetroAjto"});
 
     async getResource(): Promise<MetroResource> {
         if (this.metroResource === undefined)
@@ -26,10 +27,10 @@ class VelvetDatasource {
     }
 
     async loadResource(): Promise<MetroResource> {
-        let cache = await localForage.getItem<MetroResource>("metro-ajto-data");
+        let cache = await this.forage.getItem<MetroResource>("cache");
         if (cache === null) {
             cache = await this.fetchExternalResource();
-            await localForage.setItem("metro-ajto-data", cache);
+            await this.forage.setItem("cache", cache);
         }
         return cache;
     }
@@ -51,15 +52,23 @@ class VelvetDatasource {
                     const text = externalData[direction][station][0];
                     const numbers = text.match(numberMatcher)?.map(match => parseInt(match.replace(".", "")));
                     if (numbers) {
-                        const cart = numbers[0];
-                        let door = (doorsPerCart[metro] * (cart - 1)) + numbers[1];
-                        formattedData[direction][station] = door;
+                        const validDoors: number[] = [];
+                        for (let i = 0 ; i < (numbers.length / 2) ; i++) {
+                            const cart = numbers[i * 2];
+                            let door = (doorsPerCart[metro] * (cart - 1)) + numbers[i * 2 + 1];
+                            validDoors.push(door);
+                        }
+                        formattedData[direction][station] = validDoors;
                     }
                 });
             })
             data[metro] = formattedData;
         }
         return data;
+    }
+
+    async updateResource() {
+        await this.forage.setItem("cache", await this.fetchExternalResource());
     }
 }
 

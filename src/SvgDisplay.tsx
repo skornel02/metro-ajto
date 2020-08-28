@@ -1,12 +1,16 @@
 import React, {useEffect, useState} from "react";
 
-const SvgDisplay: React.FunctionComponent<{ svg: string, selectedDoor: number }> = props => {
+const SvgDisplay: React.FunctionComponent<{ svg: string, selectedDoors: number[] }> = props => {
     const [color, setColor] = useState<string>("green");
-    const style = props.selectedDoor === 0 ? "" : `
-        #door-${props.selectedDoor}{
+    let style = "";
+    for (let selectedDoor of props.selectedDoors) {
+        style += `
+        #door-${selectedDoor}{
             fill: ${color};
         }
-    `;
+    `
+    }
+
     useEffect(() => {
         const interval = setInterval(() => {
             if (color === "green") {

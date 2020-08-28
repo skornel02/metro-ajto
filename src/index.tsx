@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import VelvetDatasource from "./VelvetDatasource";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -10,6 +11,10 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+VelvetDatasource.updateResource()
+    .then(() => console.log("Successfully updated velvet resource"))
+    .catch(() => console.log("Couldn't update velvet resource"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
